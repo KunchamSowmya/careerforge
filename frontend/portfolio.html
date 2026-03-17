@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-green-500 to-purple-500 text-white text-center p-10">
+
+<h2>Portfolio Builder</h2>
+
+<input id="name" placeholder="Name" class="p-2 text-black"><br>
+<textarea id="projects" placeholder="Projects" class="p-2 text-black"></textarea><br>
+
+<button onclick="gen()">Generate</button>
+
+<div id="out"></div>
+<link rel="stylesheet" href="style.css">
+<div class="background-text">CareerForge AI • CareerForge AI • CareerForge AI</div>
+
+<script>
+async function gen(){
+let res = await fetch("http://127.0.0.1:8000/portfolio",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name:name.value, projects:projects.value})
+});
+let data = await res.json();
+out.innerHTML = `<pre>${data.portfolio}</pre>`;
+}
+</script>
+
+</body>
+</html>

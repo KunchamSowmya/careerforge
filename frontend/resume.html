@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resume Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="resume.html">Resume</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="chatbot.html">Chatbot</a>
+</nav>
+
+<div class="container">
+
+<h2>Resume Generator</h2>
+
+<input id="name" placeholder="Your Name"><br>
+<input id="role" placeholder="Job Role"><br>
+<textarea id="skills" placeholder="Skills"></textarea><br>
+<textarea id="experience" placeholder="Experience"></textarea><br>
+<textarea id="jobdesc" placeholder="Job Description"></textarea><br>
+
+<button onclick="generateResume()">Generate Resume</button>
+
+<div id="output" class="card"></div>
+
+<button onclick="downloadPDF()">Download PDF</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

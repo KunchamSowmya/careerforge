@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-yellow-500 to-red-500 text-white text-center p-10">
+
+<h2>AI Chatbot</h2>
+
+<input id="msg" placeholder="Ask..." class="p-2 text-black">
+<button onclick="send()" class="bg-black p-2">Send</button>
+
+<div id="chat"></div>
+<link rel="stylesheet" href="style.css">
+<div class="background-text">CareerForge AI • CareerForge AI • CareerForge AI</div>
+
+<script>
+async function send(){
+let res = await fetch("http://127.0.0.1:8000/chat",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message:msg.value})
+});
+let data = await res.json();
+chat.innerHTML += `<p><b>You:</b> ${msg.value}</p><p><b>AI:</b> ${data.reply}</p>`;
+}
+</script>
+
+</body>
+</html>

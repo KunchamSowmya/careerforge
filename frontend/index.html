@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-red-500 to-blue-500 text-white text-center p-10">
+
+<h1>CareerForge AI</h1>
+
+<input id="name" placeholder="Name" class="p-2 text-black"><br>
+<input id="role" placeholder="Role" class="p-2 text-black"><br>
+
+<textarea id="skills" placeholder="Skills" class="p-2 text-black"></textarea><br>
+<textarea id="exp" placeholder="Experience" class="p-2 text-black"></textarea><br>
+<textarea id="jd" placeholder="Job Description" class="p-2 text-black"></textarea><br>
+
+<button onclick="gen()" class="bg-black p-2">Generate</button>
+
+<div id="out"></div>
+
+<button onclick="window.print()" class="bg-green-500 p-2">Download PDF</button>
+
+<br><br>
+<a href="portfolio.html">Portfolio</a> |
+<a href="chatbot.html">Chatbot</a>
+<link rel="stylesheet" href="style.css">
+<div class="background-text">CareerForge AI • CareerForge AI • CareerForge AI</div>
+
+<script>
+async function gen(){
+let res = await fetch("http://127.0.0.1:8000/generate-resume",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+name:name.value, role:role.value,
+skills:skills.value, experience:exp.value,
+job_description:jd.value
+})
+});
+let data = await res.json();
+out.innerHTML = `<pre>${data.resume}</pre><h3>ATS: ${data.ats_score}%</h3>`;
+}
+</script>
+
+</body>
+</html>

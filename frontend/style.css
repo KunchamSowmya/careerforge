@@ -1,0 +1,94 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* 🌈 RGB BACKGROUND */
+body {
+    height: 100vh;
+    color: white;
+    overflow: hidden;
+    animation: rgbBg 10s infinite alternate;
+}
+
+/* RGB animation */
+@keyframes rgbBg {
+    0% { background: linear-gradient(45deg, red, blue); }
+    50% { background: linear-gradient(45deg, green, purple); }
+    100% { background: linear-gradient(45deg, orange, cyan); }
+}
+
+/* 🔥 RUNNING BACKGROUND TEXT */
+.background-text {
+    position: fixed;
+    top: 50%;
+    white-space: nowrap;
+    font-size: 80px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.05);
+    animation: moveText 20s linear infinite;
+}
+
+/* Text movement */
+@keyframes moveText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 🌟 CONTAINER */
+.container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px;
+}
+
+/* INPUTS */
+input, textarea {
+    width: 60%;
+    padding: 12px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #222;
+    transform: scale(1.05);
+}
+
+/* CARD STYLE */
+.card {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    margin: 20px auto;
+    width: 70%;
+    border-radius: 12px;
+}
+
+/* LINKS */
+a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
